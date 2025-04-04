@@ -47,9 +47,14 @@
         </ul>
         
         <div id="studies" class="section">
-            <h2>Studies</h2>
-            <p>This is the first section of the page.</p>
             <a href="#top">Back to top</a>
+            <h2>Studies</h2>
+            <p>I have graduated in Quantative Biology on December 2024.</p>
+            <p>My master degree was focused around the physical and mathematical understanding of principles that governs molecular biology, you can find more information <a href="https://www.unimi.it/en/education/master-programme/quantitative-biology"> here</a>.
+                Here's my academic record
+            </p>
+
+            
         </div>
         
         <div id="thesis" class="section">
@@ -76,7 +81,7 @@
             The increasing frequency of climates extremes and drougth events pose a severe treath in ecosystem balance and crop production,
             my project revolves around the understanding how plant behave towards drougth and non drougth events to face the incoming challenges linked to climate change.
            </p>
-           <p>Here's a very nice and informative video of <a href="https://profiles.imperial.ac.uk/c.prentice"> Iain Colin Prentice</a>, 
+           <p>Here's a very nice and informative video of Professor <a href="https://profiles.imperial.ac.uk/c.prentice"> Iain Colin Prentice</a>, 
             leader of our consortium <a href="https://research.reading.ac.uk/lemontree/"> LEMONTREE</a>, on the foundation and theoretical framework of our model.</p>
            <div id="video" class="section">
             <iframe width="100%" height="315" src="https://www.youtube.com/embed/WXwaFM5bZG4" frameborder="0" allowfullscreen></iframe>
@@ -101,43 +106,70 @@
            <p>To simulate ET and GPP we use the R package <a href="https://github.com/geco-bern/rsofun/tree/phydro"> rsofun </a></p>
            <p>We calibrate and run the model under three different setups:</p>
            <ul>
-            <li>Using the PT equation and considering only the top 2 meters of root length</li>
-            <li>Using the PM equation and considering only the top 2 meters of root length</li>
-            <li>Using the PM equation and using the data-informed length</li>
+            <li>Using the PT equation and S<sub>0</sub> estimated with the top 2 meters of root length</li>
+            <li>Using the PM equation and S<sub>0</sub> estimated with the top 2 meters of root length</li>
+            <li>Using the PM equation and S<sub>0</sub> estimated  using the data-informed root length</li>
           </ul>
           <p>We compared the model performance of the first and second setup to assess the impact of vegetation activity, 
             and the performance of the second and third setup to evaluate the effect of the corret represenation of root length. 
         </p>
-        <p>We upscale the model simualtion at catchment level using data coming from US CARAVANS and on a global grid scale of 0.5 degree.</p>
+        <p>We upscale the model simualtion at catchment level using data coming from US CARAVANS and on a global grid scale of 0.5 &theta;.</p>
            <h2>Results</h2>
            <h3>FLUXNET scale simulation</h3>
-           <p>figura 1</p>
-           <p>bla bla bla</p>
-           <p>figura 2</p>
-           <p>bla bla bla</p>
-           <p>figura 3</p>
-           <p>bla bla bla</p>
+           <img src="figure/fluxnet.png" alt="Insert legend">
+           <p>There is a critical improvement in ET prediction from consider the vegetation always active (<b>a</b>) to explicitly consider the activity (<b>b</b>).
+            The improvement due to a better estimation of root length is less impactant compared to the improvement led by considering vegetation activity (<b>c</b>).
+           </p>
+           <img src="figure/seasonal.png" alt="Insert legend">
+           <p>The seasonal variability of ET using PT equation is not correctly represenated in water-limited climates. 
+            In energy-limited climates, where plants are more likly to be always active, the seasonal variability is better represented. (<b>a</b>) </p>
+            <p>Using the PM equation, the seasonal variability of ET is well represenated in water and energy-limited climates. The climate Csb show a underestimation ef ET during summer.
+                This is due to the asycronicity between precipitation and maximum vegetation activity of the Csa (mediterran) climate (<b>b</b>).
+            </p>
+            <p>The underestimation of ET in mediterran and tropical climates is overcomed by considering the groundwater and root length. 
+                The improvement in model simulation is not uniform in all climates and in found mainly on mediterran and tropical climates (<b>c</b>). 
+                This is due to the fact that plants may not need to use groundwater, which is often used when precipitation is absent.</p>
+            <img src="figure/drought.png" alt="Insert legend">
+            <p>Under drougth conditions, the model underestimates ET using the PT equation, this is due to the general oversitamation which deplete the soil more rapidly than observed (<b>a</b>) .
+            Considering the vegetation activity with the PM equation the model reduce drastically the uncertainty of simulation before and after the drouught onset. 
+            However, the model underestimates ET over a long period of drought, when the water soil in the surface is depleted (<b>b</b>).
+            The model is able to capture the correct ET after a long period of drought with a better estimation of S<sub>0</sub> (<b>c</b>) .
+           </p>
            <h3>Catchment scale simulation</h3>
-           <p>figura</p>
-           <p>The model is able to correctly simulate ET at yearly scale in most of the catchment. 
-            It overestimates ET in grassland catchment, this is due to the fact that we use the wheighted average of canopy height, 
-            therefore the presence of three, even in small quantitities, ...</p>
+           <img src="figure/camels.png" alt="Insert legend">
+           <p>The model is able to correctly simulate ET at yearly scale in most of the catchments. 
+            It overestimates ET in central part of the US where grasslands are found. This is due to the fact that we use the wheighted average of canopy height. 
+            The presence of three, even in small percentage, have a relevant contribution in avreaged canopy height.</p>
            <h3>Global scale simulation</h3>
-           <p>figura</p>
-           <p>The model is able to simulates ET and GPP correctly predicting the observed patterning, when we compared ET against FLUXNET, 
-            our model have the same RMSE compared to the most important global model, the correlation of observed and predict ET at each tower flux is low compared to the other models,
-            this is due to the fact that the canopy height is higly variable in space and the 0.5 degree resolution ... . 
-            Using canopy height coming from FLUXNET data we simulates more precisely ET.</p>
-           <h2>Conclusion</h2>
+           <img src="figure/global.png" alt="Insert legend">
+           <p>The model is able to simulates ET and GPP correctly predicting the observed patterning.</p>
+           <img src="figure/global_metrics.png" alt="Insert legend">
+            <p> when we compared ET against FLUXNET, 
+                our model have the same RMSE compared to the most important global model, the correlation of observed and predict ET at each tower flux is low compared to the other models,
+                this is due to the fact that the canopy height is higly variable in space and the 0.5 &theta; resolution does not correctly capture the spatial distribution of canopy height. 
+                Using canopy height coming from FLUXNET data we simulates more precisely ET.
+                Using canopy height from local FLUXNET measurment, we are able to simulate ET with low RMSE and high correlation, 
+                indicating that also the canopy height has an important contribution in ET.</p>
+            <h2>Conclusion</h2>
            <ul>
-            <li>There is a net improvement in ET simulation considering the vegetation, which is further incerase estimating correctly the root length.</li>
-            <li>Using the PM equation, </li>
-            <li>Under drougth conditions, </li>
-            <li>somethig about GPP ...</li>
-            <li>somethig catchemtn ...</li>
-            <li>At global scale the model is able ...</li>
+            <li>To represent the water cycle is necessary to address the vegetation activity and phisiology. 
+                The model is well-capable to upscale the spatial extent while keeping the same accuracy and precision.
+                The model requires a precise represenation of canopy height, which can be challenging on grassland.</li>
+            <li>There is a net improvement in ET simulation considering the vegetation activity, which is further incerase by estimating correctly the root length.</li>
+            <li>Using the PM equation, the model is able to correctly simulate the seasonal variability of water and energy-limited climate. 
+                Considering groundwater the model correctly predict the vegetation activity in mediterran climate despite the lower precipitation</li>
+            <li>Under drougth conditions is necessary to take into account the vegetation activity.</li>
+            <li>The model correctly simulate ET at annual scale.  </li>
+            <li>At global scale the model is able to capture the local pattern of ET and GPP. 
+                However, the uniform spatial distribution at 0.5 &theta; of canopy height is not precise enough to have a correct represenation of ET.</li>
           </ul>
            <h3>References</h3>
+           <p>ref</p>
+           <p>ref</p>
+           <p>ref</p>
+           <p>ref</p>
+           <p>ref</p>
+
         </div>
     </div>
 </body>
