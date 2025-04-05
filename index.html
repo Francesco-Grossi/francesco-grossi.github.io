@@ -14,7 +14,7 @@
             align-items: center;
             min-height: 100vh;
             background-color: #f8f8f8;
-        }
+ }
         .container {
             width: 100%;
             max-width: 700px;
@@ -24,17 +24,17 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: left;
-        }
+ }
         .section {
             margin-top: 30px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             background: #fff;
-        }
+ }
         ul {
             padding-left: 20px;
-        }
+ }
     </style>
 </head>
 <body>
@@ -49,9 +49,9 @@
         <div id="studies" class="section">
             <a href="#top">Back to top</a>
             <h2>Studies</h2>
-            <p>I have graduated in Quantative Biology on December 2024.</p>
-            <p>My master degree was focused around the physical and mathematical understanding of principles that governs molecular biology, you can find more information <a href="https://www.unimi.it/en/education/master-programme/quantitative-biology"> here</a>.
-                Here's my academic record
+            <p>I graduated in Quantitative Biology in December 2024.</p>
+            <p>My master's degree was focused on the physical and mathematical understanding of the principles that govern molecular biology. You can find more information <a href="https://www.unimi.it/en/education/master-programme/quantitative-biology"> here</a>.
+ Here's my academic record
             </p>
 
             
@@ -60,48 +60,48 @@
         <div id="thesis" class="section">
             <a href="#top">Back to top</a>
             <h1>Improving 
-                evapotranspiration 
-                estimation by coupling 
-                carbon-water cycle and 
-                water holding capacity</h1>
+ evapotranspiration 
+ estimation by coupling 
+ carbon-water cycle and 
+ water holding capacity</h1>
             <p>Thanks for your interest in my thesis project! 
-                I'll quickly describe the results of my thesis project and the preliminary results of my paper</p>
+ I'll quickly describe the results of my thesis project and the preliminary results of my paper</p>
             <p>My thesis revolves around the improvement in predicting gross primary production and evapotranspiration considering the vegetation activity and root length.
-                You can find additional information <a href="https://geco-group.org/project/etmodel/"> here</a>
+ You can find additional information <a href="https://geco-group.org/project/etmodel/"> here</a>
             </p>
            <h2>Background</h2>
-           <p>Plant-atmosphere gas exchange occours at leaves level through small pores called stomata.
-            When the stomata are open, CO<sub>2</sub> enters inside the leaves while H<sub>2</sub>O diffuses out.
-            Due to the strong difference in water potential, for each CO<sub>2</sub> mole assimilated, plants lose hundreds of mole water. 
-            For this reason, plant cannot store water and rely entirely on water stored in soil. 
-            For comparison, for each oxygen mole that we breath we lose approxymately one mole of water, enabling us to store water in our body.
+           <p>Plant-atmosphere gas exchange occurs at leaves level through small pores called stomata.
+ When the stomata are open, CO<sub>2</sub> enters inside the leaves while H<sub>2</sub>O diffuses out.
+ Due to the great difference in water potential, for each CO<sub>2</sub> mole assimilated plants lose hundreds of moles of water. 
+ For this reason, plants cannot store water and rely entirely on water stored in soil. 
+ For comparison, we lose approximately one mole of water for each oxygen mole that we breathe, enabling us to store water in our bodies.
            </p>
-           <p>When the water is scarce, plants need to carefully regulate the opening and closure of the stomata to prevent xylem embolsym, 
-            the formation air bubble inside the water transport apparatus, which represent the first cause of plant mortality. 
-            The increasing frequency of climates extremes and drougth events pose a severe treath in ecosystem balance and crop production,
-            my project revolves around the understanding how plant behave towards drougth and non drougth events to face the incoming challenges linked to climate change.
+           <p>When the water is scarce, plants need to carefully regulate the opening and closure of the stomata to prevent xylem embolism, 
+ the formation of air bubbles inside the water transport apparatus, which represents the first cause of plant mortality. 
+ The increasing frequency of climate extremes and drought events pose a severe threat to ecosystem balance and crop production,
+ my project revolves around understanding how plants behave towards drought and non-drougth events to face the incoming challenges linked to climate change.
            </p>
            <p>Here's a very nice and informative video of Professor <a href="https://profiles.imperial.ac.uk/c.prentice"> Iain Colin Prentice</a>, 
-            leader of our consortium <a href="https://research.reading.ac.uk/lemontree/"> LEMONTREE</a>, on the foundation and theoretical framework of our model.</p>
+ leader of our consortium <a href="https://research.reading.ac.uk/lemontree/"> LEMONTREE</a>, on the foundation and theoretical framework of our model.</p>
            <div id="video" class="section">
             <iframe width="100%" height="315" src="https://www.youtube.com/embed/WXwaFM5bZG4" frameborder="0" allowfullscreen></iframe>
         </div>
            <h2>Introduction</h2>
             <p>Evapotranspiration (ET) is the second largest water flux on land, accounting for 66% of land precipitation. 
-                ET regulates the water and carbon cycles. When the soil is dry, plants close their stomata, thus limiting the CO2 assimilation. 
-                Estimating ET correctly is important for water management, crop production, ecosystem balance and response to climate change. </p>
-            <p> ET is higly variable in time and space and is influenced by mulitple factor including atmospheric conditions, soil morphology and vegetation activity.
-                Simulating vegetation activity requires complex models and specific plant functional type (PFT) specific parameters. 
-                While simulating ET, most of the global models do not consider the coupling of water and carbon cycles. 
-                Carbon and water cycles are closely interconnected due to the double function of the stomata, whose opening and closure are influenced by both</p>
-            <p>Soil properties are necessary to correctly capture the water availability of plants. 
-                The water availability of plants at root zone level (S<sub>0</sub>) is given by the product of soil water holding capacity (WHC) and root length. 
-                WHC is calculated based on the soil texture as the difference between the field soil capacity and the permanent wilting point. 
-                Estimating the root length at global scale requires parametrization and knowledge of soil porosity and properties and different soil layers, which is often not feasible at global scale. 
-                Using a data-driven remote sensing approach, we estimate the root length as the cumulative water deficit at which vegetation activity ceases.</p>
-            <p>Here we simulate water and carbon cycle considering the vegetation to be always active using the Priestly-Taylor equation (PT) (ref.) 
-                and explicitly considering the vegetation activity using the Penman-Monteith equation (PM) (ref.) at point-scale simulation against a network of eddy-covariance tower data called FLUXNET. 
-                We also test the robustness of the model by simulating ET and GPP at catchment and global scale.</p>
+ ET regulates the water and carbon cycles. When the soil is dry, plants close their stomata, thus limiting the CO2 assimilation. 
+ Estimating ET correctly is important for water management, crop production, ecosystem balance and response to climate change. </p>
+            <p> ET is highly variable in time and space and is influenced by numerous factors such as atmospheric conditions, soil morphology and vegetation activity.
+ Simulating vegetation activity requires complex models and specific plant functional type (PFT) specific parameters. 
+ While simulating ET, most global models do not consider the coupling of water and carbon cycles. 
+Carbon and water cycles control stomata opening and closure due to the simultaneous carbon assimilation and water loss.</p>
+            <p>To correctly capture the plants' water availability, soil properties are necessary to consider. 
+ The water availability of plants at root zone level (S<sub>0</sub>) is given by the product of soil water holding capacity (WHC) and root length. 
+ WHC is calculated based on the soil texture, estimated as the difference between the field soil capacity and the permanent wilting point. 
+ Estimating the root length at the global scale requires parametrization and knowledge of soil porosity and properties at different soil layers, which is often not feasible at the global scale. 
+ Using a data-driven remote sensing approach, we estimate the root length as the cumulative water deficit at which vegetation activity ceases.</p>
+            <p>We simulate the water and carbon cycle considering the vegetation to be always active using the Priestly-Taylor equation (PT) (ref.) 
+ and explicitly considering the vegetation activity using the Penman-Monteith equation (PM) (ref.) at point-scale simulation against a network of eddy-covariance tower data called FLUXNET. 
+ We also test the robustness of the model by simulating ET and GPP at a catchment and global scale.</p>
            <h2>Method</h2>
            <p>To simulate ET and GPP we use the R package <a href="https://github.com/geco-bern/rsofun/tree/phydro"> rsofun </a></p>
            <p>We calibrate and run the model under three different setups:</p>
@@ -110,58 +110,51 @@
             <li>Using the PM equation and S<sub>0</sub> estimated with the top 2 meters of root length</li>
             <li>Using the PM equation and S<sub>0</sub> estimated  using the data-informed root length</li>
           </ul>
-          <p>We compared the model performance of the first and second setup to assess the impact of vegetation activity, 
-            and the performance of the second and third setup to evaluate the effect of the corret represenation of root length. 
+          <p>We compared the model performance of the first and second setups to assess the impact of vegetation activity, 
+ and the performance of the second and third setups to evaluate the effect of the correct representation of root length. 
         </p>
-        <p>We upscale the model simualtion at catchment level using data coming from US CARAVANS and on a global grid scale of 0.5 &theta;.</p>
+        <p>We upscale the model simulation at the catchment level using data coming from US CARAVANS and on a global grid scale of 0.5 &theta;.</p>
            <h2>Results</h2>
            <h3>FLUXNET scale simulation</h3>
-           <img src="figure/fluxnet.png" alt="Insert legend">
-           <p>There is a critical improvement in ET prediction from consider the vegetation always active (<b>a</b>) to explicitly consider the activity (<b>b</b>).
-            The improvement due to a better estimation of root length is less impactant compared to the improvement led by considering vegetation activity (<b>c</b>).
+           <img src="figure/fluxnet.jpg" alt="Insert legend">
+           <p>There is a critical improvement in ET prediction from considering the vegetation always active (<b>a</b>) to explicitly considering the activity (<b>b</b>).
+ The improvement due to a better estimation of root length is less influential compared to the improvement led by considering vegetation activity (<b>c</b>).
            </p>
-           <img src="figure/seasonal.png" alt="Insert legend">
-           <p>The seasonal variability of ET using PT equation is not correctly represenated in water-limited climates. 
-            In energy-limited climates, where plants are more likly to be always active, the seasonal variability is better represented. (<b>a</b>) </p>
-            <p>Using the PM equation, the seasonal variability of ET is well represenated in water and energy-limited climates. The climate Csb show a underestimation ef ET during summer.
-                This is due to the asycronicity between precipitation and maximum vegetation activity of the Csa (mediterran) climate (<b>b</b>).
-            </p>
-            <p>The underestimation of ET in mediterran and tropical climates is overcomed by considering the groundwater and root length. 
-                The improvement in model simulation is not uniform in all climates and in found mainly on mediterran and tropical climates (<b>c</b>). 
-                This is due to the fact that plants may not need to use groundwater, which is often used when precipitation is absent.</p>
-            <img src="figure/drought.png" alt="Insert legend">
-            <p>Under drougth conditions, the model underestimates ET using the PT equation, this is due to the general oversitamation which deplete the soil more rapidly than observed (<b>a</b>) .
-            Considering the vegetation activity with the PM equation the model reduce drastically the uncertainty of simulation before and after the drouught onset. 
-            However, the model underestimates ET over a long period of drought, when the water soil in the surface is depleted (<b>b</b>).
-            The model is able to capture the correct ET after a long period of drought with a better estimation of S<sub>0</sub> (<b>c</b>) .
+           <img src="figure/seasonal.jpg" alt="Insert legend">
+           <p>The seasonal variability of ET using the PT equation is not correctly represented in water-limited climates. 
+ The seasonal variability is represented better in energy-limited climates  where plants are more likely to be always active (<b>a</b>) </p>
+            <p>Using the PM equation, the seasonal variability of ET is well represented in water and energy-limited climates. The climate Csa (Mediterranean)  shows an underestimation of ET during summer. The asynchronicity between precipitation and maximum vegetation activity in the Mediterranean climate leads vegetation to rely on groundwater during summer. We observed an ET underestimation during summer when groundwater wasn't included (<b>b</b>).</p>
+            <p>The underestimation of ET in Mediterranean and tropical climates is overcome by considering the groundwater and root length. 
+ The improvement in model simulation is not uniform in all climates because plants may not need to use groundwater when precipitation is present (<b>c</b>).</p>
+            <img src="figure/drought.jpg" alt="Insert legend">
+            <p> The model underestimates ET using the PT equation under drought conditions. ET underestimation is due to ET overestimation before the drought onset, which depletes the soil more rapidly than observed (<b>a</b>).
+ Considering the vegetation activity with the PM equation, the model drastically reduces the simulation uncertainty before and after the drought onset. 
+ The model underestimates ET over a long period of drought when the water soil on the surface is depleted (<b>b</b>).
+ The model can capture the correct ET after a long period of drought with a better estimation of S<sub>0</sub> (<b>c</b>).
            </p>
            <h3>Catchment scale simulation</h3>
-           <img src="figure/camels.png" alt="Insert legend">
-           <p>The model is able to correctly simulate ET at yearly scale in most of the catchments. 
-            It overestimates ET in central part of the US where grasslands are found. This is due to the fact that we use the wheighted average of canopy height. 
-            The presence of three, even in small percentage, have a relevant contribution in avreaged canopy height.</p>
+           <img src="figure/camels.jpg" alt="Insert legend">
+           <p>The model can correctly simulate ET at a yearly scale in most of the catchments. 
+ The model overestimates ET in the central part of the US on catchments mainly dominated by grasslands. The canopy height overestimation in grasslands leads to an ET overestimation. We estimate canopy height by averaging satellite data at 0.05 &theta;, the presence of trees in small fractions has a significant influence on the average canopy height.</p>
            <h3>Global scale simulation</h3>
-           <img src="figure/global.png" alt="Insert legend">
-           <p>The model is able to simulates ET and GPP correctly predicting the observed patterning.</p>
-           <img src="figure/global_metrics.png" alt="Insert legend">
-            <p> when we compared ET against FLUXNET, 
-                our model have the same RMSE compared to the most important global model, the correlation of observed and predict ET at each tower flux is low compared to the other models,
-                this is due to the fact that the canopy height is higly variable in space and the 0.5 &theta; resolution does not correctly capture the spatial distribution of canopy height. 
-                Using canopy height coming from FLUXNET data we simulates more precisely ET.
-                Using canopy height from local FLUXNET measurment, we are able to simulate ET with low RMSE and high correlation, 
-                indicating that also the canopy height has an important contribution in ET.</p>
+           <img src="figure/global.jpg" alt="Insert legend">
+           <p>The model can simulate ET and GPP correctly predicting the observed patterning.</p>
+           <img src="figure/global_metrics.jpg" alt="Insert legend">
+            <p> Our model has the same RMSE as the most relevant global model when we compared ET against FLUXNET. The correlation of observed and predicted ET at each tower flux is low compared to the other models.
+ The canopy height is highly variable in space, and the 0.5 &theta; resolution does not correctly capture the spatial distribution of canopy height. 
+ Using canopy height coming from FLUXNET data, we reduce the RMSE and increase correlation, suggesting that the canopy height has an important contribution to ET simulation.</p>
             <h2>Conclusion</h2>
            <ul>
-            <li>To represent the water cycle is necessary to address the vegetation activity and phisiology. 
-                The model is well-capable to upscale the spatial extent while keeping the same accuracy and precision.
-                The model requires a precise represenation of canopy height, which can be challenging on grassland.</li>
-            <li>There is a net improvement in ET simulation considering the vegetation activity, which is further incerase by estimating correctly the root length.</li>
-            <li>Using the PM equation, the model is able to correctly simulate the seasonal variability of water and energy-limited climate. 
-                Considering groundwater the model correctly predict the vegetation activity in mediterran climate despite the lower precipitation</li>
-            <li>Under drougth conditions is necessary to take into account the vegetation activity.</li>
-            <li>The model correctly simulate ET at annual scale.  </li>
-            <li>At global scale the model is able to capture the local pattern of ET and GPP. 
-                However, the uniform spatial distribution at 0.5 &theta; of canopy height is not precise enough to have a correct represenation of ET.</li>
+            <li> Vegetation activity and physiology play an important role in the water cycle, especially in water-limited climates. 
+We can simulate ET at a high spatial extent while maintaining the same accuracy and precision.
+ The model requires a precise representation of canopy height, which can be challenging on grassland.</li>
+            <li>There is a net improvement in ET simulation considering the vegetation activity. Estimating correctly the root length increases the model performance.</li>
+            <li>Using the PM equation, the model can correctly simulate the seasonal variability of water and energy-limited climate. 
+ Considering groundwater, the model correctly predicts the vegetation activity in the Mediterranean climate despite the lower precipitation</li>
+            <li>Under drought conditions, it is necessary to take into account the vegetation activity.</li>
+            <li>The model correctly simulates ET at an annual scale.  </li>
+            <li> The model can capture the local pattern of ET and GPP at the global scale. 
+ However, the uniform spatial distribution at 0.5 &theta; of canopy height is not precise enough to have a correct representation of ET.</li>
           </ul>
            <h3>References</h3>
            <p>ref</p>
@@ -169,7 +162,6 @@
            <p>ref</p>
            <p>ref</p>
            <p>ref</p>
-
         </div>
     </div>
 </body>
