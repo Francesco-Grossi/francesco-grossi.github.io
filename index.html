@@ -53,6 +53,9 @@
             <p>My master's degree was focused on the physical and mathematical understanding of the principles that govern molecular biology. You can find more information <a href="https://www.unimi.it/en/education/master-programme/quantitative-biology"> here</a>.
  Here's my academic record
             </p>
+            <div id="pdf" class="section">
+                <iframe class="pdf"  width="100%" height="600" src="documents/graduation_certification.pdf"></iframe>
+            </div>
 
             
         </div>
@@ -81,10 +84,10 @@
  The increasing frequency of climate extremes and drought events pose a severe threat to ecosystem balance and crop production,
  my project revolves around understanding how plants behave towards drought and non-drougth events to face the incoming challenges linked to climate change.
            </p>
-           <p>Here's a very nice and informative video of Professor <a href="https://profiles.imperial.ac.uk/c.prentice"> Iain Colin Prentice</a>, 
+           <p>Here's a very nice and informative video of Professor <a href= "https://www.reading.ac.uk/ges/staff/sandy-harrison"> sandy harrison</a>, 
  leader of our consortium <a href="https://research.reading.ac.uk/lemontree/"> LEMONTREE</a>, on the foundation and theoretical framework of our model.</p>
            <div id="video" class="section">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/WXwaFM5bZG4" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/lEdLyAZS73w" frameborder="0" allowfullscreen></iframe>
         </div>
            <h2>Introduction</h2>
             <p>Evapotranspiration (ET) is the second largest water flux on land, accounting for 66% of land precipitation. 
@@ -98,12 +101,12 @@ Carbon and water cycles control stomata opening and closure due to the simultane
  The water availability of plants at root zone level (S<sub>0</sub>) is given by the product of soil water holding capacity (WHC) and root length. 
  WHC is calculated based on the soil texture, estimated as the difference between the field soil capacity and the permanent wilting point. 
  Estimating the root length at the global scale requires parametrization and knowledge of soil porosity and properties at different soil layers, which is often not feasible at the global scale. 
- Using a data-driven remote sensing approach, we estimate the root length as the cumulative water deficit at which vegetation activity ceases.</p>
-            <p>We simulate the water and carbon cycle considering the vegetation to be always active using the Priestly-Taylor equation (PT) (ref.) 
- and explicitly considering the vegetation activity using the Penman-Monteith equation (PM) (ref.) at point-scale simulation against a network of eddy-covariance tower data called FLUXNET. 
+ Using a data-driven remote sensing approach, we estimate the root length as the cumulative water deficit at which vegetation activity ceases (Stocker et al., 2023).</p>
+            <p>We simulate the water and carbon cycle considering the vegetation to be always active using the Priestly-Taylor equation (PT)  (Priestley & Taylor, 1972) 
+ and explicitly considering the vegetation activity using the Penman-Monteith equation (PM) (Monteith, 1972) at point-scale simulation against a network of eddy-covariance tower data called FLUXNET (Pastorello et al., 2020). 
  We also test the robustness of the model by simulating ET and GPP at a catchment and global scale.</p>
            <h2>Method</h2>
-           <p>To simulate ET and GPP we use the R package <a href="https://github.com/geco-bern/rsofun/tree/phydro"> rsofun </a></p>
+           <p>To simulate ET and GPP we use the R package <a href="https://github.com/geco-bern/rsofun/tree/phydro"> rsofun </a> (Stocker et al., 2020).</p>
            <p>We calibrate and run the model under three different setups:</p>
            <ul>
             <li>Using the PT equation and S<sub>0</sub> estimated with the top 2 meters of root length</li>
@@ -113,33 +116,72 @@ Carbon and water cycles control stomata opening and closure due to the simultane
           <p>We compared the model performance of the first and second setups to assess the impact of vegetation activity, 
  and the performance of the second and third setups to evaluate the effect of the correct representation of root length. 
         </p>
-        <p>We upscale the model simulation at the catchment level using data coming from US CARAVANS and on a global grid scale of 0.5 &theta;.</p>
+        <p>We upscale the model simulation at the catchment level using data coming from US CARAVANS (Kratzert et al., 2023) and on a global grid scale of 0.5 &theta;.</p>
            <h2>Results</h2>
            <h3>FLUXNET scale simulation</h3>
-           <img src="figure/fluxnet.jpg" alt="Insert legend">
+
+           <figure style="text-align: center;">
+            <img src="figure/fluxnet.png"  style="width: 600px; height: auto;">
+            <figcaption style="text-align: justify; font-style: italic; font-size: 12px; margin-top: 8px;">
+              Figure 1. observed versus modeled ET simulation against FLUXNET site considering vegetation always active  (<b>a</b>). 
+              Consieding the vegetation activity and top 2 meter of root length  (<b>b</b>) 
+              Considering the vegetation activity and root length from remote sensing data  (<b>c</b>).
+            </figcaption>
+          </figure>
+          
            <p>There is a critical improvement in ET prediction from considering the vegetation always active (<b>a</b>) to explicitly considering the activity (<b>b</b>).
  The improvement due to a better estimation of root length is less influential compared to the improvement led by considering vegetation activity (<b>c</b>).
            </p>
-           <img src="figure/seasonal.jpg" alt="Insert legend">
+           <figure style="text-align: center;">
+            <img src="figure/seasonal.png"  style="width: 600px; height: auto;">
+            <figcaption style="text-align: justify; font-style: italic; font-size: 12px; margin-top: 8px;">
+              Figure 2. Median observed and modeled ET for each day of the year (DOY) divided by climate and hemisphere considering vegetation always active  (<b>a</b>). 
+              Considering the vegetation activity and top 2 meter of root length  (<b>b</b>) 
+              Considering the vegetation activity and root length from remote sensing data  (<b>c</b>).
+            </figcaption>
+          </figure>
            <p>The seasonal variability of ET using the PT equation is not correctly represented in water-limited climates. 
  The seasonal variability is represented better in energy-limited climates  where plants are more likely to be always active (<b>a</b>) </p>
             <p>Using the PM equation, the seasonal variability of ET is well represented in water and energy-limited climates. The climate Csa (Mediterranean)  shows an underestimation of ET during summer. The asynchronicity between precipitation and maximum vegetation activity in the Mediterranean climate leads vegetation to rely on groundwater during summer. We observed an ET underestimation during summer when groundwater wasn't included (<b>b</b>).</p>
             <p>The underestimation of ET in Mediterranean and tropical climates is overcome by considering the groundwater and root length. 
  The improvement in model simulation is not uniform in all climates because plants may not need to use groundwater when precipitation is present (<b>c</b>).</p>
-            <img src="figure/drought.jpg" alt="Insert legend">
+ <figure style="text-align: center;">
+    <img src="figure/drought.png"  style="width: 600px; height: auto;">
+    <figcaption style="text-align: justify; font-style: italic; font-size: 12px; margin-top: 8px;">
+        Figure 3. Median difference between modeled and observed ET for each day before and after the drought onset, grey area borders indicate the 0.33 and 0.66 quantiles.
+        Considering vegetation always active  (<b>a</b>). 
+        Considering the vegetation activity and top 2 meter of root length  (<b>b</b>) 
+        Considering the vegetation activity and root length from remote sensing data  (<b>c</b>).
+    </figcaption>
+  </figure>
             <p> The model underestimates ET using the PT equation under drought conditions. ET underestimation is due to ET overestimation before the drought onset, which depletes the soil more rapidly than observed (<b>a</b>).
  Considering the vegetation activity with the PM equation, the model drastically reduces the simulation uncertainty before and after the drought onset. 
  The model underestimates ET over a long period of drought when the water soil on the surface is depleted (<b>b</b>).
  The model can capture the correct ET after a long period of drought with a better estimation of S<sub>0</sub> (<b>c</b>).
            </p>
            <h3>Catchment scale simulation</h3>
-           <img src="figure/camels.jpg" alt="Insert legend">
+           <figure style="text-align: center;">
+            <img src="figure/camels.png"  style="width: 600px; height: auto;">
+            <figcaption style="text-align: justify; font-style: italic; font-size: 12px; margin-top: 8px;">
+                Figure 4. Interannual mean difference between modeled and observed ET for each catchment.
+            </figcaption>
+          </figure>
            <p>The model can correctly simulate ET at a yearly scale in most of the catchments. 
  The model overestimates ET in the central part of the US on catchments mainly dominated by grasslands. The canopy height overestimation in grasslands leads to an ET overestimation. We estimate canopy height by averaging satellite data at 0.05 &theta;, the presence of trees in small fractions has a significant influence on the average canopy height.</p>
            <h3>Global scale simulation</h3>
-           <img src="figure/global.jpg" alt="Insert legend">
+           <figure style="text-align: center;">
+            <img src="figure/global.png"  style="width: 600px; height: auto;">
+            <figcaption style="text-align: justify; font-style: italic; font-size: 12px; margin-top: 8px;">
+                Figure 5. Interannual mean ET (<b>a</b>) and GPP (<b>b</b>) at 0.5 &theta; of spatial resolution.
+            </figcaption>
+          </figure>
            <p>The model can simulate ET and GPP correctly predicting the observed patterning.</p>
-           <img src="figure/global_metrics.jpg" alt="Insert legend">
+           <figure style="text-align: center;">
+            <img src="figure/global_metrics.png"  style="width: 600px; height: auto;">
+            <figcaption style="text-align: justify; font-style: italic; font-size: 12px; margin-top: 8px;">
+                Figure 6. Boxplot of RMSE between model ET simulation and FLUXNET (<b>a</b>) and correlation (<b>b</b>) at 0.5 &theta; of spatial resolution.
+            </figcaption>
+          </figure>
             <p> Our model has the same RMSE as the most relevant global model when we compared ET against FLUXNET. The correlation of observed and predicted ET at each tower flux is low compared to the other models.
  The canopy height is highly variable in space, and the 0.5 &theta; resolution does not correctly capture the spatial distribution of canopy height. 
  Using canopy height coming from FLUXNET data, we reduce the RMSE and increase correlation, suggesting that the canopy height has an important contribution to ET simulation.</p>
@@ -157,11 +199,22 @@ We can simulate ET at a high spatial extent while maintaining the same accuracy 
  However, the uniform spatial distribution at 0.5 &theta; of canopy height is not precise enough to have a correct representation of ET.</li>
           </ul>
            <h3>References</h3>
-           <p>ref</p>
-           <p>ref</p>
-           <p>ref</p>
-           <p>ref</p>
-           <p>ref</p>
+
+           <p>Stocker, B. D., Tumber-Dávila, S. J., Konings, A. G., Anderson, M. C., Hain, C., and Jackson, R. B.: Global patterns of water storage in the rooting zones of vegetation, Nat. Geosci., 1–7,<a href="https://doi.org/10.1038/s41561-023-01125-2"> https://doi.org/10.1038/s41561-023-01125-2 </a> , 2023.
+           </p>
+
+           <p>Priestley, C. H. B. and Taylor, R. J.: On the Assessment of Surface Heat Flux and Evaporation Using Large-Scale Parameters, Monthly Weather Review, 100, 81–92, <a href="https://doi.org/10.1175/1520-0493(1972)100<0081:OTAOSH>2.3.CO;2"> https://doi.org/10.1175/1520-0493(1972)100<0081:OTAOSH>2.3.CO;2 </a> , 1972.
+           </p>
+
+           <p>Monteith, J. L.: Solar Radiation and Productivity in Tropical Ecosystems, Journal of Applied Ecology, 9, 747–766, 1972. <a href="https://doi.org/10.2307/2401901"> https://doi.org/10.2307/2401901 </a>  https://doi.org/10.2307/2401901
+            </p>
+
+           <p>Pastorello, G., Trotta, C., Canfora, E., Chu, H., Christianson, D., Cheah, Y.-W., Poindexter, C., Chen, J., Elbashandy, A., Humphrey, M., Isaac, P., Polidori, D., Reichstein, M., Ribeca, A., van Ingen, C., Vuichard, N., Zhang, L., Amiro, B., Ammann, C., Arain, M. A., Ardö, J., Arkebauer, T., Arndt, S. K., Arriga, N., Aubinet, M., Aurela, M., Baldocchi, D., Barr, A., Beamesderfer, E., Marchesini, L. B., Bergeron, O., Beringer, J., Bernhofer, C., Berveiller, D., Billesbach, D., Black, T. A., Blanken, P. D., Bohrer, G., Boike, J., Bolstad, P. V., Bonal, D., Bonnefond, J.-M., Bowling, D. R., Bracho, R., Brodeur, J., Brümmer, C., Buchmann, N., Burban, B., Burns, S. P., Buysse, P., Cale, P., Cavagna, M., Cellier, P., Chen, S., Chini, I., Christensen, T. R., Cleverly, J., Collalti, A., Consalvo, C., Cook, B. D., Cook, D., Coursolle, C., Cremonese, E., Curtis, P. S., D’Andrea, E., da Rocha, H., Dai, X., Davis, K. J., Cinti, B. D., Grandcourt, A. de, Ligne, A. D., De Oliveira, R. C., Delpierre, N., Desai, A. R., Di Bella, C. M., Tommasi, P. di, Dolman, H., Domingo, F., Dong, G., Dore, S., Duce, P., Dufrêne, E., Dunn, A., Dušek, J., Eamus, D., Eichelmann, U., ElKhidir, H. A. M., Eugster, W., Ewenz, C. M., Ewers, B., Famulari, D., Fares, S., Feigenwinter, I., Feitz, A., Fensholt, R., Filippa, G., Fischer, M., Frank, J., Galvagno, M., et al.: The FLUXNET2015 dataset and the ONEFlux processing pipeline for eddy covariance data, Sci Data, 7, 225, <a href="https://doi.org/10.1038/s41597-020-0534-3"> https://doi.org/10.1038/s41597-020-0534-3 </a> , 2020.</p>
+           
+            <p>Stocker, B. D., Wang, H., Smith, N. G., Harrison, S. P., Keenan, T. F., Sandoval, D., Davis, T., and Prentice, I. C.: P-model v1.0: an optimality-based light use efficiency model for simulating ecosystem gross primary production, Geoscientific Model Development, 13, 1545–1581, <a href="https://doi.org/10.5194/gmd-13-1545-2020"> https://doi.org/10.5194/gmd-13-1545-2020 </a> , 2020.
+            </p>      
+            
+           <p>Kratzert, F., Nearing, G., Addor, N. et al. Caravan - A global community dataset for large-sample hydrology. Sci Data 10, 61 (2023).<a href="https://doi.org/10.1038/s41597-023-01975-w"> https://doi.org/10.1038/s41597-023-01975-w </a> </p>
         </div>
     </div>
 </body>
